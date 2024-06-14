@@ -30,11 +30,13 @@
             alt="The Dragon's Hoard">
         </div>
       </div>
-      <div class="col-6 d-flex align-items-end">
+      <div class="col-7">
         <div class="row pb-2">
           <div class="col-12">
-            <h2 class="fs-4">
-              🪙 Treasure: <span id="treasure">0</span>
+          </div>
+          <div class="col-12">
+            <h2 class="fs-3">
+              🪙: <span id="treasure">0</span>
             </h2>
           </div>
         </div>
@@ -43,19 +45,36 @@
     <section class="container-fluid">
       <div class="row justify-content-end">
         <div class="col-6">
-          <div>
-            <p>Blah Blah</p>
+          <div class="row">
+            <div class="col-12">
+              <div>
+                <p>Shovels: <span id="shovelQuantity">0</span></p>
+                <p>Carts: <span id="cartQuantity">0</span></p>
+                <p>Unseen Servants: <span id="unseenServantQuantity">0</span></p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-6">
           <div class="row justify-content-center">
-            <div class="col-4 text-center">
-              <button class="btn btn-warning m-2 fw-bold">[Placeholder Text]</button>
-              <button class="btn btn-warning m-2 fw-bold">[Placeholder Text]</button>
+            <div class="col-5">
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyShovel()">
+                  Shovel
+                  <span id='shovelPrice'>🪙10</span>
+                </button>
+                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyCart()">
+                  Cart
+                  <span id="cartPrice">🪙100</span>
+                </button>
+              </div>
             </div>
-            <div class="col-4">
-              <button class="btn btn-warning m-2 fw-bold">[Placeholder Text]</button>
-              <button class="btn btn-warning m-2 fw-bold">[Placeholder Text]</button>
+            <div class="col-6">
+              <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyUnseenServant()">
+                Unseen Servant
+                <span id="unseenServantPrice">🪙60</span>
+              </button>
+              <button class="btn btn-warning btn-small m-2 fw-bold">[Placeholder Text]</button>
             </div>
           </div>
         </div>
