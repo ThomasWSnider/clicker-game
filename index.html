@@ -50,6 +50,7 @@
                 <p>Shovels: <span id="shovelQuantity">0</span></p>
                 <p>Carts: <span id="cartQuantity">0</span></p>
                 <p>Unseen Servants: <span id="unseenServantQuantity">0</span></p>
+                <p>Golems: <span id="goldGolemQuantity">0</span></p>
               </div>
             </div>
           </div>
@@ -68,12 +69,17 @@
                 </button>
               </div>
             </div>
-            <div class="col-6">
-              <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyUnseenServant()">
-                Unseen Servant
-                <span id="unseenServantPrice">🪙60</span>
-              </button>
-              <button class="btn btn-warning btn-small m-2 fw-bold">[Placeholder Text]</button>
+            <div class="col-5">
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade(unseenServant)">
+                  Unseen Servant
+                  <span id="unseenServantPrice">🪙60</span>
+                </button>
+                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade(goldGolem)">
+                  Golem
+                  <span id="goldGolemPrice">🪙500</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -22,24 +22,13 @@ const autoUpgrades = [
     quantity: 0,
     multiplier: 1
   },
+  {
+    name: 'goldGolem',
+    price: 500,
+    quantity: 0,
+    multiplier: 1
+  }
 ]
-
-// function buyShovel() {
-//   const clickUpgrade = clickUpgrades.find((upgrade) => upgrade.name == 'shovel')
-//   if (treasure >= clickUpgrade.price) {
-//     treasure -= clickUpgrade.price
-//     clickUpgrade.price = clickUpgrade.price * 2
-//     clickUpgrade.quantity++
-//     const shovelPriceElement = document.getElementById('shovelPrice')
-//     shovelPriceElement.innerText = `🪙${clickUpgrade.price}`
-//     const shovelQuantityElement = document.getElementById('shovelQuantity')
-//     shovelQuantityElement.innerText = `${clickUpgrade.quantity}`
-//   }
-//   else {
-//     return
-//   }
-//   drawTreasure()
-// }
 
 function buyClickUpgrade(upgradeName) {
   const clickUpgrade = clickUpgrades.find((upgrade) => upgrade.name == upgradeName)
@@ -53,25 +42,17 @@ function buyClickUpgrade(upgradeName) {
   }
 }
 
+function buyAutoUpgrade(upgradeName) {
+  const autoUpgrade = autoUpgrades.find((upgrade) => upgrade.name == upgradeName)
+  if (treasure >= autoUpgrade.price) {
+    treasure -= autoUpgrade.price
+    autoUpgrade.price = autoUpgrade.price * 2
+    autoUpgrade.quantity++
 
 
-
-// function buyCart() {
-//   const clickUpgrade = clickUpgrades.find((upgrade) => upgrade.name == 'cart')
-//   if (treasure >= clickUpgrade.price) {
-//     treasure -= clickUpgrade.price
-//     clickUpgrade.price = clickUpgrade.price * 2
-//     clickUpgrade.quantity++
-//     const shovelPriceElement = document.getElementById('cartPrice')
-//     shovelPriceElement.innerText = `🪙${clickUpgrade.price}`
-//     const shovelQuantityElement = document.getElementById('cartQuantity')
-//     shovelQuantityElement.innerText = `${clickUpgrade.quantity}`
-//   }
-//   else {
-//     return
-//   }
-//   drawTreasure()
-// }
+    drawTreasure()
+  }
+}
 
 function buyUnseenServant() {
   const autoUpgrade = autoUpgrades.find((upgrade) => upgrade.name == 'unseenServant')
@@ -118,8 +99,10 @@ function drawTreasure() {
 
 function drawUpgrades(upgradeName) {
   const clickUpgrade = clickUpgrades.find((upgrade) => upgrade.name == upgradeName)
+
   const upgradePriceElement = document.getElementById(`${upgradeName}Price`)
   upgradePriceElement.innerText = `🪙${clickUpgrade.price}`
+
   const upgradeQuantityElement = document.getElementById(`${upgradeName}Quantity`)
   upgradeQuantityElement.innerText = `${clickUpgrade.quantity}`
 }
