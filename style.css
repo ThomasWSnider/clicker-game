@@ -1,0 +1,5 @@
+.hoard {
+  max-height: 50vh;
+  width: auto;
+  user-select: none;
+}
