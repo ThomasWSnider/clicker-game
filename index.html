@@ -15,9 +15,9 @@
 </head>
 
 <body data-bs-theme="dark" class="debug">
-  <header class="text-center py-3 container">
+  <header class="text-center py-3 container-fluid">
     <div class="row">
-      <div class="col-12">
+      <div class="col-8 text-end">
         <h1>
           The Dragon's Hoard
         </h1>
@@ -27,7 +27,7 @@
 
   <main>
 
-    <section class="container-fluid">
+    <section class="container-fluid position-relative">
       <div class="row justify-content-between">
         <div class="col-5 border-main p-0">
           <div class="text-center hoard-room">
@@ -37,16 +37,15 @@
         </div>
         <div class="col-7 border-main">
           <div class="row py-2 align-items-center">
-            <div class="col-6">
+            <div class="col-12">
               <div class="d-flex justify-content-start align-items-center">
-                <img class="img-fluid coin me-auto" src="gold-coin.small.png" alt="A coin">
-                <h2 class="fs-2 lh-1">
+                <img class="img-fluid coin mx-auto" src="gold-coin.small.png" alt="A coin">
+                <h2 class="fs-2 lh-1 me-auto">
                   <span id="treasure"> 0</span>
                 </h2>
               </div>
             </div>
             <div class="col-6">
-              <p>Total Treasure Collected: <span id="treasureTotal">0</span></p>
             </div>
           </div>
         </div>
@@ -55,14 +54,21 @@
 
     <section class="container-fluid border-main">
       <div class="row justify-content-between">
-        <div class="col border-main">
+        <div class="col-5 border-main">
           <div class="row">
-            <div class="col-12">
-              <div>
-                <p>Shovels: <span id="shovelQuantity">0</span></p>
-                <p>Carts: <span id="cartQuantity">0</span></p>
-                <p>Unseen Servants: <span id="unseenServantQuantity">0</span></p>
-                <p>Golems: <span id="goldGolemQuantity">0</span></p>
+            <div class="col-6">
+              <div class="pt-2">
+                <p class="lh-base mb-0">Shovels: <span id="shovelQuantity">0</span></p>
+                <p class="lh-base mb-0">Carts: <span id="cartQuantity">0</span></p>
+                <p class="lh-base mb-0">Unseen Servants: <span id="unseenServantQuantity">0</span></p>
+                <p class="lh-base mb-0">Golems: <span id="goldGolemQuantity">0</span></p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="pt-2">
+                <p class="lh-base mb-0">Total Treasure Collected: <span id="treasureTotal">0</span></p>
+                <p class="lh-base mb-0">Treasure per Click: <span id="clickIncrease">1.0</span></p>
+                <p class="lh-base mb-0">Treasure per Second: <span id="autoIncrease">0.0</span></p>
               </div>
             </div>
           </div>
@@ -85,7 +91,7 @@
               <div class="d-grid gap-2">
                 <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('unseenServant')">
                   Unseen Servant
-                  <span id="unseenServantPrice">🪙60</span>
+                  <span id="unseenServantPrice">🪙100</span>
                 </button>
                 <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('goldGolem')">
                   Golem
@@ -95,6 +101,8 @@
             </div>
           </div>
         </div>
+      </div>
+      </div>
       </div>
     </section>
     </div>

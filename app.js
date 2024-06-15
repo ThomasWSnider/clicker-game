@@ -2,6 +2,10 @@ let treasure = 0
 
 let treasureTotal = 0
 
+let clickIncrease = 1
+
+let treasurePerSecond = 0
+
 const clickUpgrades = [
   {
     name: "shovel",
@@ -20,15 +24,15 @@ const clickUpgrades = [
 const autoUpgrades = [
   {
     name: 'unseenServant',
-    price: 60,
+    price: 100,
     quantity: 0,
-    multiplier: 1
+    multiplier: 0.2
   },
   {
     name: 'goldGolem',
     price: 500,
     quantity: 0,
-    multiplier: 20
+    multiplier: 10
   }
 ]
 
@@ -36,11 +40,13 @@ function buyClickUpgrade(upgradeName) {
   const clickUpgrade = clickUpgrades.find((upgrade) => upgrade.name == upgradeName)
   if (treasure >= clickUpgrade.price) {
     treasure -= clickUpgrade.price
-    clickUpgrade.price = clickUpgrade.price * 2
+    clickUpgrade.price = Math.ceil(clickUpgrade.price * 1.5)
     clickUpgrade.quantity++
+    clickIncrease += clickUpgrade.multiplier
 
     drawUpgrades(clickUpgrades, upgradeName)
     drawTreasure()
+    drawClickIncrease()
   }
 }
 
@@ -48,11 +54,11 @@ function buyAutoUpgrade(upgradeName) {
   const autoUpgrade = autoUpgrades.find((upgrade) => upgrade.name == upgradeName)
   if (treasure >= autoUpgrade.price) {
     treasure -= autoUpgrade.price
-    autoUpgrade.price = autoUpgrade.price * 2
+    autoUpgrade.price = Math.ceil(autoUpgrade.price * 1.5)
     autoUpgrade.quantity++
-
     drawUpgrades(autoUpgrades, upgradeName)
     drawTreasure()
+    drawTreasurePerSecond()
   }
 }
 
@@ -80,10 +86,15 @@ function collectAutoUpgrades() {
 
 function drawTreasure() {
   const treasureElement = document.getElementById('treasure')
-  treasureElement.innerText = treasure.toString()
+  treasureElement.innerText = treasure.toFixed(0)
 
   const treasureTotalElement = document.getElementById('treasureTotal')
-  treasureTotalElement.innerText = treasureTotal.toString()
+  treasureTotalElement.innerText = treasureTotal.toFixed(0)
+}
+
+function drawClickIncrease() {
+  const clickIncreaseElement = document.getElementById('clickIncrease')
+  clickIncreaseElement.innerText = clickIncrease.toFixed(1)
 }
 
 function drawUpgrades(upgradeType, upgradeName) {
@@ -99,6 +110,16 @@ function drawUpgrades(upgradeType, upgradeName) {
 function getFunds() {
   treasure += 1000
   drawTreasure()
+}
+
+function drawTreasurePerSecond() {
+  autoUpgrades.forEach((upgrade) => {
+    if (upgrade.quantity > 0) {
+      treasurePerSecond += upgrade.multiplier
+    }
+  })
+  const treasurePerSecElement = document.getElementById('autoIncrease')
+  treasurePerSecElement.innerText = `${treasurePerSecond.toFixed(1)}`
 }
 
 
