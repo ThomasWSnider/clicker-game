@@ -1,5 +1,7 @@
 let treasure = 0
 
+let treasureTotal = 0
+
 const clickUpgrades = [
   {
     name: "shovel",
@@ -26,7 +28,7 @@ const autoUpgrades = [
     name: 'goldGolem',
     price: 500,
     quantity: 0,
-    multiplier: 1
+    multiplier: 20
   }
 ]
 
@@ -37,7 +39,7 @@ function buyClickUpgrade(upgradeName) {
     clickUpgrade.price = clickUpgrade.price * 2
     clickUpgrade.quantity++
 
-    drawUpgrades(upgradeName)
+    drawUpgrades(clickUpgrades, upgradeName)
     drawTreasure()
   }
 }
@@ -49,35 +51,18 @@ function buyAutoUpgrade(upgradeName) {
     autoUpgrade.price = autoUpgrade.price * 2
     autoUpgrade.quantity++
 
-
+    drawUpgrades(autoUpgrades, upgradeName)
     drawTreasure()
   }
 }
 
-function buyUnseenServant() {
-  const autoUpgrade = autoUpgrades.find((upgrade) => upgrade.name == 'unseenServant')
-  if (treasure >= autoUpgrade.price) {
-    treasure -= autoUpgrade.price
-    autoUpgrade.price = autoUpgrade.price * 2
-    autoUpgrade.quantity++
-
-    const unseenServantPriceElement = document.getElementById('unseenServantPrice')
-    unseenServantPriceElement.innerText = `🪙${autoUpgrade.price}`
-
-    const unseenServantQuantityElement = document.getElementById('unseenServantQuantity')
-    unseenServantQuantityElement.innerText = `${autoUpgrade.quantity}`
-  }
-  else {
-    return
-  }
-  drawTreasure()
-}
-
 function plunder() {
   treasure++
+  treasureTotal++
   clickUpgrades.forEach((upgrade) => {
     if (upgrade.quantity > 0) {
       treasure += upgrade.quantity * upgrade.multiplier
+      treasureTotal += upgrade.quantity * upgrade.multiplier
     }
   })
   drawTreasure()
@@ -87,6 +72,7 @@ function collectAutoUpgrades() {
   autoUpgrades.forEach((autoUpgrade) => {
     if (autoUpgrade.quantity > 0) {
       treasure += autoUpgrade.quantity * autoUpgrade.multiplier
+      treasureTotal += autoUpgrade.quantity * autoUpgrade.multiplier
     }
   })
   drawTreasure()
@@ -95,16 +81,19 @@ function collectAutoUpgrades() {
 function drawTreasure() {
   const treasureElement = document.getElementById('treasure')
   treasureElement.innerText = treasure.toString()
+
+  const treasureTotalElement = document.getElementById('treasureTotal')
+  treasureTotalElement.innerText = treasureTotal.toString()
 }
 
-function drawUpgrades(upgradeName) {
-  const clickUpgrade = clickUpgrades.find((upgrade) => upgrade.name == upgradeName)
+function drawUpgrades(upgradeType, upgradeName) {
+  const upgrade = upgradeType.find((upgrade) => upgrade.name == upgradeName)
 
   const upgradePriceElement = document.getElementById(`${upgradeName}Price`)
-  upgradePriceElement.innerText = `🪙${clickUpgrade.price}`
+  upgradePriceElement.innerText = `🪙${upgrade.price}`
 
   const upgradeQuantityElement = document.getElementById(`${upgradeName}Quantity`)
-  upgradeQuantityElement.innerText = `${clickUpgrade.quantity}`
+  upgradeQuantityElement.innerText = `${upgrade.quantity}`
 }
 
 function getFunds() {

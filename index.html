@@ -15,35 +15,47 @@
 </head>
 
 <body data-bs-theme="dark" class="debug">
-  <header class="text-center py-3">
-    <h1>
-      [Placeholder Title]
-    </h1>
-  </header>
-
-  <main class="container-fluid">
-    <div class="row justify-content-between">
-      <div class="col-5">
-        <div class="text-center">
-          <img class="img-fluid hoard mb-3" onclick="plunder()" src="https://image.pngaaa.com/624/583624-middle.png"
-            alt="The Dragon's Hoard">
-        </div>
-      </div>
-      <div class="col-7">
-        <div class="row pb-2">
-          <div class="col-12">
-          </div>
-          <div class="col-12">
-            <h2 class="fs-3">
-              🪙: <span id="treasure">0</span>
-            </h2>
-          </div>
-        </div>
+  <header class="text-center py-3 container">
+    <div class="row">
+      <div class="col-12">
+        <h1>
+          The Dragon's Hoard
+        </h1>
       </div>
     </div>
+  </header>
+
+  <main>
+
     <section class="container-fluid">
-      <div class="row justify-content-end">
-        <div class="col-6">
+      <div class="row justify-content-between">
+        <div class="col-5 border-main p-0">
+          <div class="text-center hoard-room">
+            <img class="img-fluid hoard mb-3" draggable="false" onclick="plunder()" src="treasure-piles.png"
+              alt="The Dragon's Hoard">
+          </div>
+        </div>
+        <div class="col-7 border-main">
+          <div class="row py-2 align-items-center">
+            <div class="col-6">
+              <div class="d-flex justify-content-start align-items-center">
+                <img class="img-fluid coin me-auto" src="gold-coin.small.png" alt="A coin">
+                <h2 class="fs-2 lh-1">
+                  <span id="treasure"> 0</span>
+                </h2>
+              </div>
+            </div>
+            <div class="col-6">
+              <p>Total Treasure Collected: <span id="treasureTotal">0</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container-fluid border-main">
+      <div class="row justify-content-between">
+        <div class="col border-main">
           <div class="row">
             <div class="col-12">
               <div>
@@ -55,9 +67,9 @@
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-7 border-main">
           <div class="row justify-content-center">
-            <div class="col-5">
+            <div class="col-6">
               <div class="d-grid gap-2">
                 <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyClickUpgrade('shovel')">
                   Shovel
@@ -69,13 +81,13 @@
                 </button>
               </div>
             </div>
-            <div class="col-5">
+            <div class="col-6">
               <div class="d-grid gap-2">
-                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade(unseenServant)">
+                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('unseenServant')">
                   Unseen Servant
                   <span id="unseenServantPrice">🪙60</span>
                 </button>
-                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade(goldGolem)">
+                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('goldGolem')">
                   Golem
                   <span id="goldGolemPrice">🪙500</span>
                 </button>

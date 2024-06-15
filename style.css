@@ -2,4 +2,22 @@
   max-height: 50vh;
   width: auto;
   user-select: none;
+  cursor: pointer;
+}
+
+.hoard-room {
+  background-image: url(Treasure-Room.png);
+  background-size: cover;
+  border: 6px inset silver;
+}
+
+.coin {
+  height: auto;
+  width: auto;
+  max-height: 2em;
+  max-width: 2em;
+}
+
+.border-main {
+  border: 3px solid silver;
 }
