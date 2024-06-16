@@ -39,3 +39,17 @@
 .hoard:active {
   transform: scale(1.15);
 }
+
+.upgrade-button {
+  height: 10em;
+  width: 100%;
+}
+
+.upgrade-img {
+  max-height: 10em;
+  width: auto;
+}
+
+.upgrade-text {
+  width: 100%;
+}

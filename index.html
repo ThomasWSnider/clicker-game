@@ -12,13 +12,23 @@
   <title>Document</title>
 </head>
 
-<body data-bs-theme="dark" class="debug">
-  <header class="text-center py-3 container-fluid">
+<body data-bs-theme="dark">
+
+  <header class="text-center py-1 container-fluid">
     <div class="row">
       <div class="col-7 text-end">
         <h1>
           The Dragon's Hoard
         </h1>
+      </div>
+      <div class="col-5">
+        <button class="btn btn-outline-warning m-2 fw-bold mdi mdi-shovel" onclick="buyClickUpgrade('shovel')">
+          <span id='shovelPrice'>🪙10</span>
+        </button>
+        <button class="btn btn-outline-warning m-2 fw-bold mdi mdi-truck-trailer" onclick="buyClickUpgrade('cart')"
+          disabled>
+          <span id="cartPrice">🪙100</span>
+        </button>
       </div>
     </div>
   </header>
@@ -58,10 +68,7 @@
               <div class="pt-2">
                 <p class="lh-base mb-0">Shovels: <span id="shovelQuantity">0</span></p>
                 <p class="lh-base mb-0">Carts: <span id="cartQuantity">0</span></p>
-                <p class="lh-base mb-0">Unseen Servants: <span id="unseenServantQuantity">0</span></p>
-                <p class="lh-base mb-0">Golems: <span id="goldGolemQuantity">0</span></p>
-                <p class="lh-base mb-0">Floating Disks: <span id="floatingDiskQuantity">0</span></p>
-                <p class="lh-base mb-0">Teleportation Circles: <span id="teleportationQuantity">0</span></p>
+
               </div>
             </div>
             <div class="col-6">
@@ -73,38 +80,41 @@
             </div>
           </div>
         </div>
-        <div class="col-7 border-main">
+        <div class="col-7 border-main overflow-y-scroll">
           <div class="row justify-content-center">
             <div class="col-6">
               <div class="d-grid gap-2">
-                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyClickUpgrade('shovel')">
-                  Shovel
-                  <span id='shovelPrice'>🪙10</span>
+                <button id="unseenServantBtn" class="btn btn-outline-warning m-2 fw-bold"
+                  onclick="buyAutoUpgrade('unseenServant')">
+                  Unseen Servant
+                  <span id="unseenServantPrice">🪙10</span>
                 </button>
-                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyClickUpgrade('cart')">
-                  Cart
-                  <span id="cartPrice">🪙100</span>
+                <button id="goldGolemBtn" class="btn btn-outline-warning m-2 fw-bold"
+                  onclick="buyAutoUpgrade('goldGolem')" disabled>
+                  Golem
+                  <span id="goldGolemPrice">🪙100</span>
+                </button>
+                <button id="floatingDiskBtn" class="btn btn-outline-warning m-2 fw-bold"
+                  onclick="buyAutoUpgrade('floatingDisk')" disabled>
+                  Floating Disk
+                  <span id="floatingDiskPrice">🪙1000</span>
+                </button>
+                <button id="teleportationBtn" class="btn btn-outline-warning m-2 fw-bold"
+                  onclick="buyAutoUpgrade('teleportation')" disabled>
+                  Teleportation Circle
+                  <span id="teleportationPrice">🪙10000</span>
                 </button>
               </div>
             </div>
             <div class="col-6">
               <div class="d-grid gap-2">
-                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('unseenServant')">
-                  Unseen Servant
-                  <span id="unseenServantPrice">🪙10</span>
-                </button>
-                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('goldGolem')" disabled>
-                  Golem
-                  <span id="goldGolemPrice">🪙100</span>
-                </button>
-                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('floatingDisk')" disabled>
-                  Floating Disk
-                  <span id="floatingDiskPrice">🪙1000</span>
-                </button>
-                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('teleportation')" disabled>
-                  Teleportation Circle
-                  <span id="teleportationPrice">🪙10000</span>
-                </button>
+                <p class="lh-base mb-0 mt-2">Unseen Servants: <span id="unseenServantQuantity">0</span></p>
+                <br>
+                <p class="lh-base mb-0">Golems: <span id="goldGolemQuantity">0</span></p>
+                <br>
+                <p class="lh-base mb-0">Floating Disks: <span id="floatingDiskQuantity">0</span></p>
+                <br>
+                <p class="lh-base mb-0">Teleportation Circles: <span id="teleportationQuantity">0</span></p>
               </div>
             </div>
           </div>

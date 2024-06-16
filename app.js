@@ -106,6 +106,8 @@ function drawTreasure() {
 
   const treasureTotalElement = document.getElementById('treasureTotal')
   treasureTotalElement.innerText = treasureTotal.toFixed(0)
+
+  activateUpgrades()
 }
 
 function drawClickIncrease() {
@@ -141,8 +143,19 @@ function drawTreasurePerSecond() {
 function activateUpgrades() {
   autoUpgrades.forEach((upgrade) => {
     if (upgrade.activated == false) {
-      if (treasure == upgrade.price) {
+      if (treasure >= upgrade.price) {
         upgrade.activated = true
+        const upgradeButton = document.getElementById(`${upgrade.name}Btn`)
+        upgradeButton.removeAttribute('disabled')
+      }
+    }
+  })
+  clickUpgrades.forEach((upgrade) => {
+    if (upgrade.activated == false) {
+      if (treasure >= upgrade.price) {
+        upgrade.activated = true
+        const upgradeButton = document.getElementById(`${upgrade.name}Btn`)
+        upgradeButton.removeAttribute('disabled')
       }
     }
   })
