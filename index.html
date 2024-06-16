@@ -22,12 +22,14 @@
         </h1>
       </div>
       <div class="col-5">
-        <button class="btn btn-outline-warning m-2 fw-bold mdi mdi-shovel" onclick="buyClickUpgrade('shovel')">
-          <span id='shovelPrice'>🪙10</span>
+        <button id="shovelBtn" class="btn btn-outline-warning m-2 fw-bold" title="+1 treasure per click"
+          onclick="buyClickUpgrade('shovel')" disabled>
+          Shovel
+          <span id='shovelPrice'>🪙100</span>
         </button>
-        <button class="btn btn-outline-warning m-2 fw-bold mdi mdi-truck-trailer" onclick="buyClickUpgrade('cart')"
-          disabled>
-          <span id="cartPrice">🪙100</span>
+        <button id="cartBtn" class="btn btn-outline-warning m-2 fw-bold" title="+3 treasure per click"
+          onclick="buyClickUpgrade('cart')" disabled>Cart
+          <span id="cartPrice">🪙1000</span>
         </button>
       </div>
     </div>
@@ -85,22 +87,22 @@
             <div class="col-6">
               <div class="d-grid gap-2">
                 <button id="unseenServantBtn" class="btn btn-outline-warning m-2 fw-bold"
-                  onclick="buyAutoUpgrade('unseenServant')">
+                  title="+0.2 treasure per second" onclick="buyAutoUpgrade('unseenServant')" disabled>
                   Unseen Servant
                   <span id="unseenServantPrice">🪙10</span>
                 </button>
-                <button id="goldGolemBtn" class="btn btn-outline-warning m-2 fw-bold"
+                <button id="goldGolemBtn" class="btn btn-outline-warning m-2 fw-bold" title="+1 treasure per second"
                   onclick="buyAutoUpgrade('goldGolem')" disabled>
                   Golem
                   <span id="goldGolemPrice">🪙100</span>
                 </button>
-                <button id="floatingDiskBtn" class="btn btn-outline-warning m-2 fw-bold"
+                <button id="floatingDiskBtn" class="btn btn-outline-warning m-2 fw-bold" title="+10 treasure per second"
                   onclick="buyAutoUpgrade('floatingDisk')" disabled>
                   Floating Disk
                   <span id="floatingDiskPrice">🪙1000</span>
                 </button>
                 <button id="teleportationBtn" class="btn btn-outline-warning m-2 fw-bold"
-                  onclick="buyAutoUpgrade('teleportation')" disabled>
+                  title="+100 treasure per second" onclick="buyAutoUpgrade('teleportation')" disabled>
                   Teleportation Circle
                   <span id="teleportationPrice">🪙10000</span>
                 </button>

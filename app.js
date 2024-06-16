@@ -9,15 +9,17 @@ let treasurePerSecond = 0
 const clickUpgrades = [
   {
     name: "shovel",
-    price: 10,
+    price: 100,
     quantity: 0,
-    multiplier: 1
+    multiplier: 1,
+    activated: false
   },
   {
     name: "cart",
-    price: 100,
+    price: 1000,
     quantity: 0,
-    multiplier: 5
+    multiplier: 3,
+    activated: false
   }
 ]
 
@@ -56,7 +58,7 @@ function buyClickUpgrade(upgradeName) {
   const clickUpgrade = clickUpgrades.find((upgrade) => upgrade.name == upgradeName)
   if (treasure >= clickUpgrade.price) {
     treasure -= clickUpgrade.price
-    clickUpgrade.price = Math.ceil(clickUpgrade.price * 1.15)
+    clickUpgrade.price = Math.ceil(clickUpgrade.price * 3)
     clickUpgrade.quantity++
     clickIncrease += clickUpgrade.multiplier
 
@@ -149,7 +151,18 @@ function activateUpgrades() {
         upgradeButton.removeAttribute('disabled')
       }
     }
+    else if (upgrade.activated == true && upgrade.price > treasure) {
+      const upgradeButton = document.getElementById(`${upgrade.name}Btn`)
+      // @ts-ignore
+      upgradeButton.disabled = true
+    }
+    else if (upgrade.activated == true && upgrade.price <= treasure) {
+      const upgradeButton = document.getElementById(`${upgrade.name}Btn`)
+      // @ts-ignore
+      upgradeButton.disabled = false
+    }
   })
+
   clickUpgrades.forEach((upgrade) => {
     if (upgrade.activated == false) {
       if (treasure >= upgrade.price) {
