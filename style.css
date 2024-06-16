@@ -1,13 +1,14 @@
 .hoard {
-  max-height: 50vh;
+  max-height: 30em;
   width: auto;
   user-select: none;
   cursor: pointer;
 }
 
 .hoard-room {
-  background-image: url(Treasure-Room.png);
+  background-image: url(https://assetstorev1-prd-cdn.unity3d.com/package-screenshot/e464d4a1-72fa-4fb8-97f6-abc35db6bd39_scaled.jpg);
   background-size: cover;
+  background-position: center;
   border: 6px inset silver;
 }
 
@@ -28,4 +29,13 @@
   right: 2px;
   max-height: 5em;
   width: auto;
+}
+
+.hoard:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 15px #fcea8e);
+}
+
+.hoard:active {
+  transform: scale(1.15);
 }

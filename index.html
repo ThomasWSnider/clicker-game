@@ -7,8 +7,6 @@
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'
     integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
-  <script id="debug-script" src="https://cdn.jsdelivr.net/gh/MickShannahan/style-debug@latest/debug.min.js"
-    defer></script>
   <link rel="stylesheet" href="style.css">
   <script src="app.js"></script>
   <title>Document</title>
@@ -17,7 +15,7 @@
 <body data-bs-theme="dark" class="debug">
   <header class="text-center py-3 container-fluid">
     <div class="row">
-      <div class="col-8 text-end">
+      <div class="col-7 text-end">
         <h1>
           The Dragon's Hoard
         </h1>
@@ -30,8 +28,8 @@
     <section class="container-fluid position-relative">
       <div class="row justify-content-between">
         <div class="col-5 border-main p-0">
-          <div class="text-center hoard-room">
-            <img class="img-fluid hoard mb-3" draggable="false" onclick="plunder()" src="treasure-piles.png"
+          <div class="text-center hoard-room ">
+            <img class="img-fluid hoard" draggable="false" onclick="plunder()" oncontextmenu="false" src="goldpile.png"
               alt="The Dragon's Hoard">
           </div>
         </div>
@@ -62,6 +60,8 @@
                 <p class="lh-base mb-0">Carts: <span id="cartQuantity">0</span></p>
                 <p class="lh-base mb-0">Unseen Servants: <span id="unseenServantQuantity">0</span></p>
                 <p class="lh-base mb-0">Golems: <span id="goldGolemQuantity">0</span></p>
+                <p class="lh-base mb-0">Floating Disks: <span id="floatingDiskQuantity">0</span></p>
+                <p class="lh-base mb-0">Teleportation Circles: <span id="teleportationQuantity">0</span></p>
               </div>
             </div>
             <div class="col-6">
@@ -91,11 +91,19 @@
               <div class="d-grid gap-2">
                 <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('unseenServant')">
                   Unseen Servant
-                  <span id="unseenServantPrice">🪙100</span>
+                  <span id="unseenServantPrice">🪙10</span>
                 </button>
-                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('goldGolem')">
+                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('goldGolem')" disabled>
                   Golem
-                  <span id="goldGolemPrice">🪙500</span>
+                  <span id="goldGolemPrice">🪙100</span>
+                </button>
+                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('floatingDisk')" disabled>
+                  Floating Disk
+                  <span id="floatingDiskPrice">🪙1000</span>
+                </button>
+                <button class="btn btn-outline-warning m-2 fw-bold" onclick="buyAutoUpgrade('teleportation')" disabled>
+                  Teleportation Circle
+                  <span id="teleportationPrice">🪙10000</span>
                 </button>
               </div>
             </div>
